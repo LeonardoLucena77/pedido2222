@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Relacionamento - Que tal um "Sim"?</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #ffccff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 5px solid #ff3399;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff3399;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ff3399;
+            font-size: 14px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ff3399;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: #ff3399;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .yes-button {
+            background-color: #28a745;
+        }
+
+        .no-button {
+            background-color: #dc3545;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .success {
+            color: #28a745;
+        }
+
+        .error {
+            color: #dc3545;
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            color: #ff3399;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Pedido Especial</h1>
+        <p>Eu tenho uma pergunta MUITO importante para você... <3</p>
+    </div>
+    <div class="container">
+        <div class="form-box">
+            <h2>Será que você aceita este pedido Bellita?</h2>
+            <div class="heart-icon">❤️</div>
+            <form id="relationshipForm">
+                <label for="nome">Qual o seu nome, minha futura amor?</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <label for="meuNome">Quem está te pedindo isso?</label>
+                <input type="text" id="meuNome" name="meuNome" placeholder="O nome do sortudo(a)" required>
+
+                <label for="filha">Qual o nome da nossa primeira filha?</label>
+                <input type="text" id="filha" name="filha" placeholder="Dand..." required>
+
+                <label for="namorar">Quer namorar cmg?</label>
+                <input type="text" id="namorar" name="namorar" placeholder="óbv q sim ne..." required>
+
+                <div class="button-container">
+                    <button type="submit" class="yes-button">SIM!</button>
+                    <button type="button" class="no-button" onclick="decline()">Não... (ficou doida??!)</button>
+                </div>
+            </form>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('relationshipForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário tradicional
+
+            const success = true; // Sempre sucesso, não tem erro aqui!
+
+            const messageDiv = document.getElementById('message');
+            if (success) {
+                messageDiv.textContent = 'Amo você! Estamos juntos! ❤️';
+                messageDiv.classList.remove('error');
+                messageDiv.classList.add('success');
+
+                // Redireciona para o Google com a pergunta de casamento
+                setTimeout(function() {
+                    window.location.href = 'https://www.google.com/search?q=quer+casar+cmg+%3F&oq=quer+casar+cmg+%3F&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDYzNzRqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8';
+                }, 2000); // Espera 2 segundos antes de redirecionar
+            } 
+        });
+
+        function decline() {
+            alert("Tá de brincadeira né?! Dorme que amanha é outro dia kakaka! 😘");
+        }
+    </script>
+</body>
+</html>
